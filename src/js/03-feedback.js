@@ -23,9 +23,13 @@ function handlerSubmit(evt) {
   evt.preventDefault();
   const { email, message } = evt.currentTarget.elements;
   console.log({ email: email.value, message: message.value });
-  if (localStorage.getItem(FORM_KEY_LOCAL)) {
-    localStorage.removeItem(FORM_KEY_LOCAL);
+  
+  if (email.value === '' || message.value === '') {
+    return alert('Заповніть будь-ласка всі поля форми!');
   }
+  
+    localStorage.removeItem(FORM_KEY_LOCAL);
+  
    evt.currentTarget.reset();
 };
 
